@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./CSS/style.css">
+</head>
+
+<body id="bodyRegistro">
+
+    <div class="login-wrap">
+        <div class="login-html">
+            <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Usuario</label>
+            <input id="tab-2" type="radio" name="tab" class="sign-up"><label class="tab"><div id="usuario"></div></label>
+            <div class="login-form">
+                <div class="sign-in-htm">
+                    <div class="group">
+                        <label for="user" class="label">Nombre</label>
+                        <input id="nombre" type="text" class="input">
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Apellido</label>
+                        <input id="apellido" type="text" class="input">
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Edad</label>
+                        <input id="edad" type="text" class="input">
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Altura (cm)</label>
+                        <input id="altura" type="text" class="input">
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Peso (kg)</label>
+                        <input id="peso" type="text" class="input">
+                    </div>
+                    <div class="hr"></div>
+                    <div class="group">
+                        <input type="submit" class="button" value="Sign In" onclick="perfil()">
+                    </div>
+                    <div class="hr"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./JS/registro.js"></script>
+</body>
+
+</html>
