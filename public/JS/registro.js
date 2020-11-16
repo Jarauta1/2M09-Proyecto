@@ -4,10 +4,10 @@ document.getElementById("usuario").innerHTML = usuario
 
 function perfil() {
     let nombre = document.getElementById("nombre").value
-    let apellido = document.getElementById("nombre").value
-    let altura = document.getElementById("nombre").value
-    let edad = document.getElementById("nombre").value
-    let peso = document.getElementById("nombre").value
+    let apellido = document.getElementById("apellido").value
+    let altura = document.getElementById("altura").value
+    let edad = document.getElementById("edad").value
+    let peso = document.getElementById("peso").value
 
     let perfil = { usuario: usuario, nombre: nombre, apellido: apellido, altura: altura, edad: edad, peso: peso }
 
@@ -24,9 +24,9 @@ function perfil() {
         })
         .then(function(data) {
 
-            console.log(data)
 
-            /* location.href = '../registro.html'; */
+
+            location.href = '../dashboard.html';
 
 
         });

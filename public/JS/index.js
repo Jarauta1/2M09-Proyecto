@@ -43,14 +43,22 @@ function registrar() {
 
                     document.getElementById("falloRegistro").innerHTML = `<span>${data.mensaje}</span>`
                     localStorage.setItem("usuario", usuarioRegistrar)
-                    location.href = '../registro.html';
 
+                    if (data.registro == "si") {
+
+                        location.href = '../loading.html';
+                        /* setTimeout("entrarRegistro()", 2000); */
+                    }
 
                 });
         }
     }
 }
 
+/* function entrarRegistro() {
+
+    location.href = '../registro.html';
+} */
 
 function entrar() {
     let usuarioRegistrar = document.getElementById("usernameEntrar").value
@@ -71,6 +79,11 @@ function entrar() {
         .then(function(data) {
 
             document.getElementById("falloEntrar").innerHTML = `<span>${data.mensaje}</span>`
+
+            if (data.entrar == "si") {
+                localStorage.setItem("usuario", usuarioRegistrar)
+                location.href = '../dashboard.html';
+            }
 
         });
 

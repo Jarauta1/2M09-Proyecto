@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./CSS/style2.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css">
+</head>
+
+<body class="background-cyan">
+
+    <div class="container">
+        <div class="dashboard">
+            <div class="dashboard-header">
+                <div class="dashboard-header__title">Usuario</div>
+                <button>Perfil</button>
+                <button>Usuarios</button>
+                <button>Introducir datos</button>
+                <button>Salir</button>
+                <div class="dashboard-header__date">Sunday, October 19th</div>
+            </div>
+            <div class="dashboard-card weather">
+                <div class="dashboard-card__title"><span class="wi wi-day-sunny"></span>Analisis de entrenamientos</div>
+                <div class="dashboad-card__content">
+                    <div class="dashboard-card__card-piece">
+                        <div class="weather-days">
+                            <div class="weather-days__item">
+                                <div class="weather-days__title">Today</div>
+                                <div class="weather-days__icon">
+                                    <span class="wi wi-day-cloudy"></span>
+                                </div>
+                                <div class="weather-days__humidity">0.2</div>
+                            </div>
+                            <div class="weather-days__item">
+                                <div class="weather-days__title">Mon</div>
+                                <div class="weather-days__icon">
+                                    <span class="wi wi-cloudy"></span>
+                                </div>
+                                <div class="weather-days__humidity">0.4</div>
+                            </div>
+                            <div class="weather-days__item">
+                                <div class="weather-days__title">Tue</div>
+                                <div class="weather-days__icon">
+                                    <span class="wi wi-day-rain"></span>
+                                </div>
+                                <div class="weather-days__humidity">0.7</div>
+                            </div>
+                            <div class="weather-days__item">
+                                <div class="weather-days__title">Wed</div>
+                                <div class="weather-days__icon">
+                                    <span class="wi wi-day-rain"></span>
+                                </div>
+                                <div class="weather-days__humidity">0.9</div>
+                            </div>
+                            <div class="weather-days__item">
+                                <div class="weather-days__title">Thu</div>
+                                <div class="weather-days__icon">
+                                    <span class="wi wi-day-sunny"></span>
+                                </div>
+                                <div class="weather-days__humidity">0.1</div>
+                            </div>
+                        </div>
+                        <a href="#" class="dashboard-card__link" tabindex="1">View in details<span class="fa fa-angle-right"></span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="dashboard-card temperature">
+                <div class="dashboard-card__title"><span class="wi wi-thermometer"></span>Calorías y desnivel</div>
+                <div class="dashboad-card__content">
+                    <div class="dashboard-card__card-piece">
+                        <div class="temperature-stats">
+                            <div class="stats__item">
+                                <div class="stats__title">Calorías</div>
+                                <div class="stats__icon"><span class="fa fa-home"></span></div>
+                                <div class="stats__measure">
+                                    <div class="stats__value">22</div>
+                                    <div class="stats__unit stats__unit_celsius">C</div>
+                                </div>
+                            </div>
+                            <div class="stats__item">
+                                <div class="stats__title">Desnivel</div>
+                                <div class="stats__icon"><span class="wi wi-day-cloudy"></span></div>
+                                <div class="stats__measure">
+                                    <div class="stats__value">18</div>
+                                    <div class="stats__unit stats__unit_celsius">C</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#" class="dashboard-card__link" tabindex="1">Edit<span class="fa fa-angle-right"></span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="dashboard-card wifi">
+                <div class="dashboard-card__title"><span class="fa fa-wifi"></span>Distancia total</div>
+                <div class="dashboad-card__content">
+                    <div class="dashboard-card__card-piece">
+                        <div class="status status_success">
+                            <div class="status__icon"><span class="fa fa-check"></span></div>
+                            <div class="status__text">Activated</div>
+                        </div>
+                        <a href="#" class="dashboard-card__link" tabindex="1">Edit<span class="fa fa-angle-right"></span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="dashboard-card alarm">
+                <div class="dashboard-card__title"><span class="fa fa-bell-o"></span>Tiempo total</div>
+                <div class="dashboad-card__content">
+                    <div class="dashboard-card__card-piece">
+                        <div class="status status_danger">
+                            <div class="status__icon"><span class="fa fa-times"></span></div>
+                            <div class="status__text">Disabled</div>
+                        </div>
+                        <a href="#" class="dashboard-card__link" tabindex="1">Edit<span class="fa fa-angle-right"></span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="dashboard-card light">
+                <div class="dashboard-card__title"><span class="fa fa-lightbulb-o"></span>Light</div>
+                <div class="dashboad-card__content">
+                    <div class="dashboard-card__card-piece">
+                        <div class="light-switches">
+                            <div class="switch switch_order-1">
+                                <div class="switch__name">Entrance hall</div>
+                                <input type="checkbox" id="switch1" class="switch__input" tabindex="2" checked></input>
+                                <label for="switch1" class="switch__label"></label>
+                            </div>
+                            <div class="switch switch_order-2">
+                                <div class="switch__name">Bedroom 1</div>
+                                <input type="checkbox" id="switch2" class="switch__input" tabindex="3"></input>
+                                <label for="switch2" class="switch__label"></label>
+                            </div>
+                            <div class="switch switch_order-1">
+                                <div class="switch__name">Living room</div>
+                                <input type="checkbox" id="switch3" class="switch__input" tabindex="2"></input>
+                                <label for="switch3" class="switch__label"></label>
+                            </div>
+                            <div class="switch switch_order-2">
+                                <div class="switch__name">Bedroom 2</div>
+                                <input type="checkbox" id="switch4" class="switch__input" tabindex="3"></input>
+                                <label for="switch4" class="switch__label"></label>
+                            </div>
+                            <div class="switch switch_order-1">
+                                <div class="switch__name">Dining room</div>
+                                <input type="checkbox" id="switch5" class="switch__input" tabindex="2" checked></input>
+                                <label for="switch5" class="switch__label"></label>
+                            </div>
+                            <div class="switch switch_order-2">
+                                <div class="switch__name">Bedroom 3</div>
+                                <input type="checkbox" id="switch6" class="switch__input" tabindex="3" checked></input>
+                                <label for="switch6" class="switch__label"></label>
+                            </div>
+                            <div class="switch switch_order-1">
+                                <div class="switch__name">Bathroom</div>
+                                <input type="checkbox" id="switch7" class="switch__input" tabindex="2"></input>
+                                <label for="switch7" class="switch__label"></label>
+                            </div>
+                            <div class="switch switch_order-2">
+                                <div class="switch__name">WC</div>
+                                <input type="checkbox" id="switch8" class="switch__input" tabindex="3"></input>
+                                <label for="switch8" class="switch__label"></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dashboard-card power">
+                <div class="dashboard-card__title"><span class="fa fa-bar-chart"></span>Power</div>
+                <div class="dashboad-card__content">
+                    <div class="dashboard-card__card-piece">
+                        <div class="stats__item">
+                            <div class="stats__title">Water</div>
+                            <div class="stats__icon"><span class="wi wi-raindrop"></span></div>
+                            <div class="stats__measure">
+                                <div class="stats__value">14</div>
+                                <div class="stats__unit stats__unit_meter">m</div>
+                            </div>
+                        </div>
+                        <a href="#" class="dashboard-card__link" tabindex="4">View in details<span class="fa fa-angle-right"></span></a>
+                    </div>
+                    <div class="dashboard-card__card-piece">
+                        <div class="stats__item">
+                            <div class="stats__title">Electricity</div>
+                            <div class="stats__icon"><span class="fa fa-flash"></span></div>
+                            <div class="stats__measure">
+                                <div class="stats__value">49</div>
+                                <div class="stats__unit stats__unit_power">kw/h</div>
+                            </div>
+                        </div>
+                        <a href="#" class="dashboard-card__link" tabindex="4">View in details<span class="fa fa-angle-right"></span></a>
+                    </div>
+                    <div class="dashboard-card__card-piece">
+                        <div class="stats__item">
+                            <div class="stats__title">Gas</div>
+                            <div class="stats__icon"><span class="fa fa-fire"></span></div>
+                            <div class="stats__measure">
+                                <div class="stats__value">37</div>
+                                <div class="stats__unit stats__unit_meter">m</div>
+                            </div>
+                        </div>
+                        <a href="#" class="dashboard-card__link" tabindex="4">View in details<span class="fa fa-angle-right"></span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./JS/dashboard.js"></script>
+</body>
+
+</html>
