@@ -15,7 +15,8 @@ router.post("/", function(req, res) {
             console.log(err)
             res.send({ mensaje: "Error:" + err })
         } else {
-            res.send(datos)
+            let entrenamiento = datos[0].entrenamiento
+            res.send(entrenamiento)
         }
     })
 
