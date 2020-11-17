@@ -9,6 +9,7 @@
   "author": "D.Jarauta",
   "license": "ISC",
   "dependencies": {
+    "apexcharts": "^3.22.2",
     "bcrypt": "^5.0.0",
     "express": "^4.17.1",
     "mongodb": "^3.6.3"

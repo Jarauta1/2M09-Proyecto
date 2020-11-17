@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./CSS/style2.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 </head>
 
 <body class="background-cyan">
@@ -15,110 +16,125 @@
     <div class="container">
         <div class="dashboard">
             <div class="dashboard-header">
-                <div class="dashboard-header__title">Usuario</div>
-                <button>Perfil</button>
-                <button>Usuarios</button>
-                <button>Introducir datos</button>
-                <button>Salir</button>
-                <div class="dashboard-header__date">Sunday, October 19th</div>
+                <div class="dashboard-header__title">SCampos</div>
+                <div class="dashboard-botones">
+                    <hr>
+                    <button onclick="editar()">Perfil</button>
+                    <hr>
+                    <button>Usuarios</button>
+                    <hr>
+                    <button>Introducir datos</button>
+                    <hr>
+                    <button>Salir</button>
+                    <hr>
+                </div>
+                <div class="dashboard-header__date">Martes 17, Noviembre 20</div>
             </div>
             <div class="dashboard-card weather">
-                <div class="dashboard-card__title"><span class="wi wi-day-sunny"></span>Analisis de entrenamientos</div>
+                <div class="dashboard-card__title"><img class="icon" src="./Imagenes/analisis2.png" height="40" />Analisis de entrenamientos (totales y medias)</div>
                 <div class="dashboad-card__content">
                     <div class="dashboard-card__card-piece">
                         <div class="weather-days">
                             <div class="weather-days__item">
-                                <div class="weather-days__title">Today</div>
+                                <div class="weather-days__title">Actividades</div>
                                 <div class="weather-days__icon">
-                                    <span class="wi wi-day-cloudy"></span>
+                                    <img class="icon" src="./Imagenes/actividades.png" height="70" />
                                 </div>
-                                <div class="weather-days__humidity">0.2</div>
+                                <div id="actividades" class="actividades">102</div>
                             </div>
                             <div class="weather-days__item">
-                                <div class="weather-days__title">Mon</div>
+                                <div class="weather-days__title">Calorias</div>
                                 <div class="weather-days__icon">
-                                    <span class="wi wi-cloudy"></span>
+                                    <img class="icon" src="./Imagenes/calorias2.png" height="70" />
                                 </div>
-                                <div class="weather-days__humidity">0.4</div>
+                                <div id="calorias" class="calorias">59.9</div>
                             </div>
                             <div class="weather-days__item">
-                                <div class="weather-days__title">Tue</div>
+                                <div class="weather-days__title">Desnivel</div>
                                 <div class="weather-days__icon">
-                                    <span class="wi wi-day-rain"></span>
+                                    <img class="icon" src="./Imagenes/desnivel.png" height="70" />
                                 </div>
-                                <div class="weather-days__humidity">0.7</div>
+                                <div id="desnivel" class="desnivel">2.6</div>
                             </div>
                             <div class="weather-days__item">
-                                <div class="weather-days__title">Wed</div>
+                                <div class="weather-days__title">Vel. Media</div>
                                 <div class="weather-days__icon">
-                                    <span class="wi wi-day-rain"></span>
+                                    <img class="icon" src="./Imagenes/run.png" height="70" />
                                 </div>
-                                <div class="weather-days__humidity">0.9</div>
+                                <div id="media" class="media">2.89</div>
                             </div>
                             <div class="weather-days__item">
-                                <div class="weather-days__title">Thu</div>
+                                <div class="weather-days__title">Vel. Máxima</div>
                                 <div class="weather-days__icon">
-                                    <span class="wi wi-day-sunny"></span>
+                                    <img class="icon" src="./Imagenes/exercise.png" height="70" />
                                 </div>
-                                <div class="weather-days__humidity">0.1</div>
+                                <div id="maxima" class="maxima">4.72</div>
                             </div>
                         </div>
-                        <a href="#" class="dashboard-card__link" tabindex="1">View in details<span class="fa fa-angle-right"></span></a>
+                        <a href="#" class="dashboard-card__link" tabindex="1"></a>
                     </div>
                 </div>
             </div>
             <div class="dashboard-card temperature">
-                <div class="dashboard-card__title"><span class="wi wi-thermometer"></span>Calorías y desnivel</div>
+                <div class="dashboard-card__title"><img class="icon" src="./Imagenes/info.png" height="35" />Equipamiento</div>
                 <div class="dashboad-card__content">
                     <div class="dashboard-card__card-piece">
                         <div class="temperature-stats">
                             <div class="stats__item">
-                                <div class="stats__title">Calorías</div>
-                                <div class="stats__icon"><span class="fa fa-home"></span></div>
+                                <div class="stats__title">ASICS</div>
+                                <div class="stats__icon"><img class="icon" src="./Imagenes/zapatilla.png" height="70" />
+                                </div>
                                 <div class="stats__measure">
-                                    <div id="calorias" class="stats__value">22</div>
-                                    <div class="stats__unit stats__unit_celsius">K</div>
+                                    <div id="zapatilla1" class="stats__value">26,6</div>
+                                    <div class="stats__unit stats__unit_celsius">km</div>
                                 </div>
                             </div>
                             <div class="stats__item">
-                                <div class="stats__title">Desnivel</div>
-                                <div class="stats__icon"><span class="wi wi-day-cloudy"></span></div>
+                                <div class="stats__title">MIZUNO</div>
+                                <div class="stats__icon"><img class="icon" src="./Imagenes/zapatilla2.png" height="70" /></div>
                                 <div class="stats__measure">
-                                    <div id="desnivel" class="stats__value">18</div>
-                                    <div class="stats__unit stats__unit_celsius">KM</div>
+                                    <div id="zapatilla2" class="stats__value">12,2</div>
+                                    <div class="stats__unit stats__unit_celsius">km</div>
                                 </div>
                             </div>
                         </div>
-                        <a href="#" class="dashboard-card__link" tabindex="1">Edit<span class="fa fa-angle-right"></span></a>
+                        <a href="#" class="dashboard-card__link" tabindex="1"></a>
                     </div>
                 </div>
             </div>
             <div class="dashboard-card wifi">
-                <div class="dashboard-card__title"><span class="fa fa-wifi"></span>Distancia total</div>
+                <div class="dashboard-card__title"><img class="icon" src="./Imagenes/distancia3.png" height="40" />Distancia total</div>
                 <div class="dashboad-card__content">
                     <div class="dashboard-card__card-piece">
                         <div class="status status_success">
-                            <div id="distancia" class="status__text">Activated</div>
+                            <div id="distancia" class="status__text">367,8
+                                <div>Km</div>
+                            </div>
+
                         </div>
-                        <a href="#" class="dashboard-card__link" tabindex="1">Edit<span class="fa fa-angle-right"></span></a>
+                        <a href="#" class="dashboard-card__link" tabindex="1"></a>
                     </div>
                 </div>
             </div>
             <div class="dashboard-card alarm">
-                <div class="dashboard-card__title"><span class="fa fa-bell-o"></span>Tiempo total</div>
+                <div class="dashboard-card__title"><img class="icon" src="./Imagenes/timer.png" height="40" />Tiempo total</div>
                 <div class="dashboad-card__content">
                     <div class="dashboard-card__card-piece">
                         <div class="status status_danger">
-                            <div id="tiempo" class="status__text">Disabled</div>
+                            <div id="tiempoTotal">
+                                <div id="tiempo" class="status__date">1 día 10:58</div>
+                                <div id="segundos"> :20</div>
+                            </div>
+
                         </div>
-                        <a href="#" class="dashboard-card__link" tabindex="1">Edit<span class="fa fa-angle-right"></span></a>
+                        <a href="#" class="dashboard-card__link" tabindex="1"></a>
                     </div>
                 </div>
             </div>
             <div class="dashboard-card light">
-                <div class="dashboard-card__title"><span class="fa fa-lightbulb-o"></span>Light</div>
-                <div class="dashboad-card__content">
-                    <div class="dashboard-card__card-piece">
+                <div class="dashboard-card__title"><img class="icon" src="./Imagenes/graficas.png" height="40" />Año</div>
+                <div class="">
+                    <!--  <div class="dashboard-card__card-piece">
                         <div class="light-switches">
                             <div class="switch switch_order-1">
                                 <div class="switch__name">Entrance hall</div>
@@ -161,13 +177,17 @@
                                 <label for="switch8" class="switch__label"></label>
                             </div>
                         </div>
+                    </div> -->
+                    <div id="chart"></div>
+                    <div>
+                        <select name="anyo" id="selectAnyo"></select>
                     </div>
                 </div>
             </div>
             <div class="dashboard-card power">
-                <div class="dashboard-card__title"><span class="fa fa-bar-chart"></span>Power</div>
+                <div class="dashboard-card__title"><img class="icon" src="./Imagenes/graficas.png" height="40" />MES</div>
                 <div class="dashboad-card__content">
-                    <div class="dashboard-card__card-piece">
+                    <!-- <div class="dashboard-card__card-piece">
                         <div class="stats__item">
                             <div class="stats__title">Water</div>
                             <div class="stats__icon"><span class="wi wi-raindrop"></span></div>
@@ -199,7 +219,7 @@
                             </div>
                         </div>
                         <a href="#" class="dashboard-card__link" tabindex="4">View in details<span class="fa fa-angle-right"></span></a>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
