@@ -7,7 +7,8 @@ const cifrarContrasenia = require("./cifrarContrasenia")
 
 let usuarios = require("./usuarios")
 let datos = require("./datos")
-    /* let editarPerfil = require("./editarPerfil") */
+let editarPerfil = require("./editarPerfil")
+let introducirDatos = require("./introducirDatos")
 
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));
@@ -26,6 +27,7 @@ MongoClient.connect("mongodb://127.0.0.1:27017", function(err, client) {
 
 app.use("/usuarios", usuarios)
 app.use("/datos", datos)
-    /* app.use("/editarPerfil", editarPerfil) */
+app.use("/editarPerfil", editarPerfil)
+app.use("/introducirDatos", introducirDatos)
 
 app.listen(3000);

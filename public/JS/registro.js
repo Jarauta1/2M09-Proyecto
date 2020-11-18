@@ -8,8 +8,9 @@ function perfil() {
     let altura = document.getElementById("altura").value
     let edad = document.getElementById("edad").value
     let peso = document.getElementById("peso").value
+    let sexo = document.getElementById("sexo").value
 
-    let perfil = { usuario: usuario, nombre: nombre, apellido: apellido, altura: altura, edad: edad, peso: peso }
+    let perfil = { usuario: usuario, nombre: nombre, apellido: apellido, altura: altura, edad: edad, peso: peso, sexo: sexo }
 
 
     fetch("/usuarios/perfil", {

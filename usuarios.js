@@ -87,8 +87,9 @@ router.put("/perfil", function(req, res) {
     let altura = parseFloat(req.body.altura)
     let edad = parseFloat(req.body.edad)
     let peso = parseFloat(req.body.peso)
+    let sexo = req.body.sexo
 
-    let perfil = { nombre: nombre, apellido: apellido, altura: altura, edad: edad, peso: peso }
+    let perfil = { nombre: nombre, apellido: apellido, altura: altura, edad: edad, peso: peso, sexo: sexo }
 
     db.collection("users").find({ username: username }).toArray(function(err, datos) {
         if (err !== null) {
@@ -97,7 +98,7 @@ router.put("/perfil", function(req, res) {
         } else {
 
 
-            db.collection("users").updateOne({ username: username }, { $set: { nombre: nombre, apellido: apellido, altura: altura, edad: edad, peso: peso } }, function(err, datos) {
+            db.collection("users").updateOne({ username: username }, { $set: { nombre: nombre, apellido: apellido, altura: altura, edad: edad, peso: peso, sexo: sexo } }, function(err, datos) {
                 if (err !== null) {
                     res.send({ mensaje: "Error al registrar el usuario" })
                 } else {
