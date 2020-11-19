@@ -19,7 +19,7 @@ router.post("/registro", cifrarContrasenia, function(req, res) {
             if (datos.length > 0) {
                 res.send({ registro: "no", mensaje: "Ese nombre de usuario ya esta ocupado" })
             } else {
-                db.collection("users").insertOne({ username: username, password: password, amistad: "Ninguno", peticionAmistad: "No", zapatillas: "Ninguna", bicicleta: "Ninguna", entrenamiento: {}, }, function(err, datos) {
+                db.collection("users").insertOne({ username: username, password: password, amistad: [], peticionAmistad: "no", solicitud: "no", zapatillas: "Ninguna", bicicleta: "Ninguna", entrenamiento: [], }, function(err, datos) {
                     if (err !== null) {
                         res.send({ mensaje: "Error al registrar el usuario" })
                     } else {

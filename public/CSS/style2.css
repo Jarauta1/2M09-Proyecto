@@ -541,6 +541,11 @@ body {
     grid-column: 1/6;
 }
 
+.acumulado {
+    grid-row: 7;
+    grid-column: 1/6;
+}
+
 @media (max-width: 992px) {
     .dashboard {
         grid-template-columns: repeat(2, 1fr);

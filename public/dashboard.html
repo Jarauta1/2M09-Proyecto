@@ -17,14 +17,14 @@
     <div class="container">
         <div class="dashboard">
             <div class="dashboard-header">
-                <div class="dashboard-header__title">SCampos</div>
+                <div id="tituloUsuario" class="dashboard-header__title">Runner</div>
                 <div class="dashboard-botones">
                     <hr>
                     <button onclick="editar()">Perfil</button>
                     <hr>
                     <button onclick="usuarios()">Usuarios</button>
                     <hr>
-                    <button onclick="datos()">Introducir datos</button>
+                    <button onclick="datos()">Introducir entrenamiento</button>
                     <hr>
                     <button onclick="salir()">Salir</button>
                     <hr>
@@ -364,20 +364,20 @@
 
 
                 <div>
-                    <select onchange="actualizarGraficas()" name="anyo" id="selectAnyo">
+                    <select onchange=actualizarGraficas() name="anyo" id="selectAnyo">
                         <option value="2020">2020</option>
                         <option value="2019">2019</option>
                         <option value="2018">2018</option>
                                             </select>
                 </div>
                 <div>
-                    <select onchange="actualizarGraficas()" name="actividad" id="selectActividad">
-                        <option value="Distancia">Distancia</option>
-                        <option value="Calorias">Calorias</option>
-                        <option value="Desnivel">Desnivel</option>
-                        <option value="media">Vel. media</option>
-                        <option value="maxima">Vel. máxima</option>
-                        <option value="Tiempo">Tiempo</option>
+                    <select onchange=actualizarGraficas() name="actividad" id="selectActividad">
+                        <option value="distancia">Distancia</option>
+                        <option value="calorias">Calorias</option>
+                        <option value="elevacion">Desnivel</option>
+                        <option value="velocidadMedia">Vel. media</option>
+                        <option value="velocidadMaxima">Vel. máxima</option>
+                        <option value="tiempo">Tiempo</option>
                     </select>
                 </div>
                 <div id="chart"></div>
@@ -389,10 +389,35 @@
                 </div>
 
                 <div>
-                    <select name="anyo" id="selectAnyo"></select>
+                    <select onchange=actualizarGraficas() name="actividad" id="selectActividadBarras">
+                        <option value="distancia">Distancia</option>
+                        <option value="calorias">Calorias</option>
+                        <option value="elevacion">Desnivel</option>
+                        <option value="velocidadMedia">Vel. media</option>
+                        <option value="velocidadMaxima">Vel. máxima</option>
+                        <option value="tiempo">Tiempo</option>
+                    </select>
                 </div>
 
                 <div id="chart2"></div>
+
+                <div></div>
+
+            </div>
+            <div class="dashboard-card acumulado">
+                <div class="dashboard-card__title"><img class="icon" src="./Imagenes/graficas.png" height="40" />EVOLUCION
+                </div>
+
+                <div>
+                    <select onchange=actualizarGraficas() name="actividad" id="selectActividadAcumulado">
+                        <option value="distancia">Distancia</option>
+                        <option value="calorias">Calorias</option>
+                        <option value="elevacion">Desnivel</option>
+                        <option value="tiempo">Tiempo</option>
+                    </select>
+                </div>
+
+                <div id="chart3"></div>
 
                 <div></div>
 

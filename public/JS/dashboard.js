@@ -1,13 +1,14 @@
 let mensaje = ""
 
 let username = localStorage.getItem("usuario")
+document.getElementById("tituloUsuario").innerHTML = username
 
 function editar() {
     location.href = '../editarPerfil.html';
 }
 
 function usuarios() {
-    location.href = '../editarPerfil.html';
+    location.href = '../listaUsuarios.html';
 }
 
 function datos() {
@@ -151,8 +152,11 @@ function actualizarDatos() {
 function actualizarGraficas() {
 
     let anyo = document.getElementById("selectAnyo").value
-    let actividad = document.getElementById("selectActividad").value.toLowerCase()
-        /* let mes = document.getElementById("selectMes").value */
+    let actividad = document.getElementById("selectActividad").value
+    let actividad2 = document.getElementById("selectActividadAcumulado").value
+    let actividadBarras = document.getElementById("selectActividadBarras").value
+
+    /* let mes = document.getElementById("selectMes").value */
 
     fetch("/datos/graficas", {
             method: "POST",
@@ -170,14 +174,9 @@ function actualizarGraficas() {
 
             var options = {
                 series: [{
-                        name: anyo,
-                        data: [data.ene, data.feb, data.mar, data.abr, data.may, data.jun, data.jul, data.ago, data.sep, data.oct, data.nov, data.dic]
-                    }
-                    /* , {
-                        name: "2019",
-                        data: [12, 3, 23, 75, 21, 45, 23, 86, 29, 42, 75, 4]
-                    } */
-                ],
+                    name: anyo,
+                    data: [data.ene, data.feb, data.mar, data.abr, data.may, data.jun, data.jul, data.ago, data.sep, data.oct, data.nov, data.dic]
+                }],
                 chart: {
                     height: 300,
                     type: 'line',
@@ -201,7 +200,7 @@ function actualizarGraficas() {
                     curve: 'smooth'
                 },
                 title: {
-                    text: 'Distancia',
+                    text: actividad,
                     align: 'left'
                 },
                 grid: {
@@ -224,8 +223,8 @@ function actualizarGraficas() {
                     title: {
                         text: 'Km'
                     },
-                    min: 5,
-                    max: mayor + 50
+                    min: 0,
+                    max: mayor
                 },
                 legend: {
                     position: "top",
@@ -239,60 +238,168 @@ function actualizarGraficas() {
             var chart = new ApexCharts(document.querySelector("#chart"), options);
             chart.render();
 
+
+        })
+
+
+
+    fetch("/datos/graficasBarra", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ username: username, actividad: actividadBarras }),
+        })
+        .then(function(res) {
+            return res.json();
+        })
+        .then(function(data) {
+
+
+            var mayor = Math.max(data.ene18, data.feb18, data.mar18, data.abr18, data.may18, data.jun18, data.jul18, data.ago18, data.sep18, data.oct18, data.nov18, data.dic18, data.ene19, data.feb19, data.mar19, data.abr19, data.may19, data.jun19, data.jul19, data.ago19, data.sep19, data.oct19, data.nov19, data.dic19, data.ene20, data.feb20, data.mar20, data.abr20, data.may20, data.jun20, data.jul20, data.ago20, data.sep20, data.oct20, data.nov20, data.dic20);
+
+            var options = {
+                series: [{
+                    name: "2018",
+                    data: [data.ene18, data.feb18, data.mar18, data.abr18, data.may18, data.jun18, data.jul18, data.ago18, data.sep18, data.oct18, data.nov18, data.dic18]
+                }, {
+                    name: "2019",
+                    data: [data.ene19, data.feb19, data.mar19, data.abr19, data.may19, data.jun19, data.jul19, data.ago19, data.sep19, data.oct19, data.nov19, data.dic19]
+                }, {
+                    name: "2020",
+                    data: [data.ene20, data.feb20, data.mar20, data.abr20, data.may20, data.jun20, data.jul20, data.ago20, data.sep20, data.oct20, data.nov20, data.dic20]
+                }],
+                chart: {
+                    type: 'bar',
+                    height: 300
+                },
+                plotOptions: {
+                    bar: {
+                        horizontal: false,
+                        columnWidth: '55%',
+                        endingShape: 'rounded'
+                    },
+                },
+                dataLabels: {
+                    enabled: false
+                },
+                stroke: {
+                    show: true,
+                    width: 2,
+                    colors: ['transparent']
+                },
+                xaxis: {
+                    categories: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', "Ago", "Sep", "Oct", "Nov", "Dic"],
+                },
+                yaxis: {
+                    title: {
+                        text: '$ (thousands)'
+                    }
+                },
+                fill: {
+                    opacity: 1
+                },
+                tooltip: {
+                    y: {
+                        formatter: function(val) {
+                            return "$ " + val + " thousands"
+                        }
+                    }
+                }
+            };
+
+            var chart = new ApexCharts(document.querySelector("#chart2"), options);
+            chart.render();
+        })
+
+    fetch("/datos/graficasAcumulado", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ username: username, actividad: actividad2 }),
+        })
+        .then(function(res) {
+            return res.json();
+        })
+        .then(function(data) {
+
+            var mayor2 = Math.max(data.ene18 + data.feb18 + data.mar18 + data.abr18 + data.may18 + data.jun18 + data.jul18 + data.ago18 + data.sep18 + data.oct18 + data.nov18 + data.dic18, data.ene19 + data.feb19 + data.mar19 + data.abr19 + data.may19 + data.jun19 + data.jul19 + data.ago19 + data.sep19 + data.oct19 + data.nov19 + data.dic19, data.ene20 + data.feb20 + data.mar20 + data.abr20 + data.may20 + data.jun20 + data.jul20 + data.ago20 + data.sep20 + data.oct20 + data.nov20 + data.dic20);
+
+            var options = {
+                series: [{
+                    name: "2018",
+                    data: [data.ene18, data.ene18 + data.feb18, data.ene18 + data.feb18 + data.mar18, data.ene18 + data.feb18 + data.mar18 + data.abr18, data.ene18 + data.feb18 + data.mar18 + data.abr18 + data.may18, data.ene18 + data.feb18 + data.mar18 + data.abr18 + data.may18 + data.jun18, data.ene18 + data.feb18 + data.mar18 + data.abr18 + data.may18 + data.jun18 + data.jul18, data.ene18 + data.feb18 + data.mar18 + data.abr18 + data.may18 + data.jun18 + data.jul18 + data.ago18, data.ene18 + data.feb18 + data.mar18 + data.abr18 + data.may18 + data.jun18 + data.jul18 + data.ago18 + data.sep18, data.ene18 + data.feb18 + data.mar18 + data.abr18 + data.may18 + data.jun18 + data.jul18 + data.ago18 + data.sep18 + data.oct18, data.ene18 + data.feb18 + data.mar18 + data.abr18 + data.may18 + data.jun18 + data.jul18 + data.ago18 + data.sep18 + data.oct18 + data.nov18, data.ene18 + data.feb18 + data.mar18 + data.abr18 + data.may18 + data.jun18 + data.jul18 + data.ago18 + data.sep18 + data.oct18 + data.nov18 + data.dic18]
+                }, {
+                    name: "2019",
+                    data: [data.ene19, data.ene19 + data.feb19, data.ene19 + data.feb19 + data.mar19, data.ene19 + data.feb19 + data.mar19 + data.abr19, data.ene19 + data.feb19 + data.mar19 + data.abr19 + data.may19, data.ene19 + data.feb19 + data.mar19 + data.abr19 + data.may19 + data.jun19, data.ene19 + data.feb19 + data.mar19 + data.abr19 + data.may19 + data.jun19 + data.jul19, data.ene19 + data.feb19 + data.mar19 + data.abr19 + data.may19 + data.jun19 + data.jul19 + data.ago19, data.ene19 + data.feb19 + data.mar19 + data.abr19 + data.may19 + data.jun19 + data.jul19 + data.ago19 + data.sep19, data.ene19 + data.feb19 + data.mar19 + data.abr19 + data.may19 + data.jun19 + data.jul19 + data.ago19 + data.sep19 + data.oct19, data.ene19 + data.feb19 + data.mar19 + data.abr19 + data.may19 + data.jun19 + data.jul19 + data.ago19 + data.sep19 + data.oct19 + data.nov19, data.ene19 + data.feb19 + data.mar19 + data.abr19 + data.may19 + data.jun19 + data.jul19 + data.ago19 + data.sep19 + data.oct19 + data.nov19 + data.dic19]
+                }, {
+                    name: "2020",
+                    data: [data.ene20, data.ene20 + data.feb20, data.ene20 + data.feb20 + data.mar20, data.ene20 + data.feb20 + data.mar20 + data.abr20, data.ene20 + data.feb20 + data.mar20 + data.abr20 + data.may20, data.ene20 + data.feb20 + data.mar20 + data.abr20 + data.may20 + data.jun20, data.ene20 + data.feb20 + data.mar20 + data.abr20 + data.may20 + data.jun20 + data.jul20, data.ene20 + data.feb20 + data.mar20 + data.abr20 + data.may20 + data.jun20 + data.jul20 + data.ago20, data.ene20 + data.feb20 + data.mar20 + data.abr20 + data.may20 + data.jun20 + data.jul20 + data.ago20 + data.sep20, data.ene20 + data.feb20 + data.mar20 + data.abr20 + data.may20 + data.jun20 + data.jul20 + data.ago20 + data.sep20 + data.oct20, data.ene20 + data.feb20 + data.mar20 + data.abr20 + data.may20 + data.jun20 + data.jul20 + data.ago20 + data.sep20 + data.oct20 + data.nov20, data.ene20 + data.feb20 + data.mar20 + data.abr20 + data.may20 + data.jun20 + data.jul20 + data.ago20 + data.sep20 + data.oct20 + data.nov20 + data.dic20]
+                }],
+                chart: {
+                    height: 300,
+                    type: 'line',
+                    dropShadow: {
+                        enabled: true,
+                        color: '#000',
+                        top: 18,
+                        left: 7,
+                        blur: 10,
+                        opacity: 0.2
+                    },
+                    toolbar: {
+                        show: false
+                    }
+                },
+                colors: ['#77B6EA', '#545454'],
+                dataLabels: {
+                    enabled: true,
+                },
+                stroke: {
+                    curve: 'smooth'
+                },
+                title: {
+                    text: actividad2,
+                    align: 'left'
+                },
+                grid: {
+                    borderColor: '#e7e7e7',
+                    row: {
+                        colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+                        opacity: 0.5
+                    },
+                },
+                markers: {
+                    size: 1
+                },
+                xaxis: {
+                    categories: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', "Ago", "Sep", "Oct", "Nov", "Dic"],
+                    title: {
+                        text: 'Mes'
+                    }
+                },
+                yaxis: {
+                    title: {
+                        text: 'Km'
+                    },
+                    min: 0,
+                    max: mayor2
+                },
+                legend: {
+                    position: "top",
+                    horizontalAlign: 'right',
+                    floating: true,
+                    offsetY: -25,
+                    offsetX: -5
+                }
+            };
+
+            var chart = new ApexCharts(document.querySelector("#chart3"), options);
+            chart.render();
+
+
+
+
         })
 }
-
-/* Barras */
-
-var options = {
-    series: [{
-        name: '2018',
-        data: [44, 55, 57, 56, 61, 58, 63, 60, 66]
-    }, {
-        name: '2019',
-        data: [76, 85, 101, 98, 87, 105, 91, 114, 94]
-    }, {
-        name: '2020',
-        data: [35, 41, 36, 26, 45, 48, 52, 53, 41]
-    }],
-    chart: {
-        type: 'bar',
-        height: 300
-    },
-    plotOptions: {
-        bar: {
-            horizontal: false,
-            columnWidth: '55%',
-            endingShape: 'rounded'
-        },
-    },
-    dataLabels: {
-        enabled: false
-    },
-    stroke: {
-        show: true,
-        width: 2,
-        colors: ['transparent']
-    },
-    xaxis: {
-        categories: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', "Ago", "Sep", "Oct", "Nov", "Dic"],
-    },
-    yaxis: {
-        title: {
-            text: '$ (thousands)'
-        }
-    },
-    fill: {
-        opacity: 1
-    },
-    tooltip: {
-        y: {
-            formatter: function(val) {
-                return "$ " + val + " thousands"
-            }
-        }
-    }
-};
-
-var chart = new ApexCharts(document.querySelector("#chart2"), options);
-chart.render();
