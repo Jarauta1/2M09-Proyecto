@@ -9,6 +9,7 @@ let usuarios = require("./usuarios")
 let datos = require("./datos")
 let editarPerfil = require("./editarPerfil")
 let introducirDatos = require("./introducirDatos")
+let listaUsuarios = require("./listaUsuarios")
 
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));
@@ -29,5 +30,6 @@ app.use("/usuarios", usuarios)
 app.use("/datos", datos)
 app.use("/editarPerfil", editarPerfil)
 app.use("/introducirDatos", introducirDatos)
+app.use("/listaUsuarios", listaUsuarios)
 
 app.listen(3000);

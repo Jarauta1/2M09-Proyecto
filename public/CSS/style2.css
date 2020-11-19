@@ -667,9 +667,6 @@ body {
 /* ------------------ */
 
 
-/* Get the bourbon mixin from http://bourbon.io */
-
-
 /* Reset */
 
 .flip-clock-wrapper * {
@@ -1191,4 +1188,25 @@ body {
     100% {
         opacity: 0;
     }
+}
+
+
+/* ---------- */
+
+
+/* KILOMETROS */
+
+
+/* ---------- */
+
+#kilometros {
+    color: black;
+    font: normal 14px "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.odometer {
+    font-size: 56px;
+    position: relative;
+    left: 2%;
+    margin-top: 9px;
 }

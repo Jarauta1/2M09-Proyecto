@@ -6,6 +6,17 @@ function editar() {
     location.href = '../editarPerfil.html';
 }
 
+function usuarios() {
+    location.href = '../editarPerfil.html';
+}
+
+function datos() {
+    location.href = '../introducirDatos.html';
+}
+
+function salir() {
+    location.href = '../index.html';
+}
 
 actualizarDatos()
 actualizarGraficas()
@@ -44,7 +55,11 @@ function actualizarDatos() {
             document.getElementById("maxima").innerHTML = data.maxima
             document.getElementById("zapatilla1").innerHTML = data.asics
             document.getElementById("zapatilla2").innerHTML = data.mizuno
-            document.getElementById("distancia").innerHTML = data.distancia
+
+
+            setTimeout(function() {
+                odometer.innerHTML = data.distancia;
+            }, 500);
 
             let dias = data.dias
             dias = dias.toString()
@@ -132,25 +147,6 @@ function actualizarDatos() {
         });
 }
 
-function addDatos() {
-    fetch("/datos/add", {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ username: username }),
-        })
-        .then(function(res) {
-            return res.json();
-        })
-        .then(function(data) {
-
-            entrenamiento = data[0].entrenamiento
-            console.log(entrenamiento)
-
-        });
-
-}
 
 function actualizarGraficas() {
 

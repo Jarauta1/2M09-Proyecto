@@ -1,0 +1,337 @@
+* {
+    padding: 0;
+    margin: 0;
+    outline: none;
+}
+
+body {
+    background-color: #d9d9d9;
+    font-size: 14px;
+    font-family: "Gotham Book", sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: #fb6362;
+}
+
+a:hover {
+    color: #f98584;
+}
+
+li {
+    list-style: none;
+}
+
+h2 {
+    font-weight: normal;
+}
+
+
+/* for containers */
+
+.container {
+    margin: 20px auto;
+    background-color: #fff;
+    overflow: hidden;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2), 0 2px 3px rgba(0, 0, 0, 0.4);
+}
+
+.container .icon {
+    background-image: url('https://res.cloudinary.com/dw369yzsh/image/upload/v1483213851/icons_wykol9.png');
+    width: 27px;
+    height: 30px;
+}
+
+#icon {
+    background-image: url(../Imagenes/icondatos.png);
+    background-size: cover;
+    width: 10%;
+    top: 14px;
+}
+
+.calendar th,
+.graph {
+    font-family: "Gotham Medium", sans-serif;
+    color: #666666;
+}
+
+
+/*buttons*/
+
+.container button {
+    text-transform: uppercase;
+    border: none;
+    background-color: #fb6362;
+    color: #fff;
+    margin: 0 auto;
+    display: block;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2), 0 1px 2px rgba(0, 0, 0, 0.8);
+    border-radius: 4px;
+    font-size: 15px;
+    font-family: "Gotham Book", sans-serif;
+    cursor: pointer;
+    -webkit-transition: background-color 0.2s;
+    -moz-transition: background-color 0.2s;
+    -ms-transition: background-color 0.2s;
+    -o-transition: background-color 0.2s;
+    transition: background-color 0.2s;
+}
+
+.container button:hover {
+    background-color: #f98584;
+}
+
+.container button:active {
+    background-color: #f98584;
+    position: relative;
+    top: 2px;
+}
+
+button.button-big {
+    width: 296px;
+    height: 58px;
+}
+
+
+/*inputs*/
+
+#datos {
+    display: flex;
+    justify-content: space-around;
+    align-items: top;
+}
+
+.input-text {
+    border-radius: 2px;
+    background-color: #f4f4f4;
+    box-shadow: inset 0px 1px 1px 0px rgba(0, 0, 0, 0.25);
+    padding-left: 0px;
+    position: relative;
+    height: 46px;
+    line-height: 46px;
+}
+
+.input-text .icon {
+    position: absolute;
+    right: 4px;
+    top: 4px;
+}
+
+.input-text input,
+.input-text textarea,
+.div-file label {
+    border: none;
+    background-color: transparent;
+    font-family: "Gotham Light", sans-serif;
+    color: #999999;
+}
+
+
+/*placeholders hell*/
+
+.container .input-text input::-webkit-input-placeholder,
+.container .input-text textarea::-webkit-input-placeholder {
+    color: #999999;
+    font-family: "Gotham Light", sans-serif;
+    font-size: 14px;
+}
+
+.container .input-text input::-moz-placeholder,
+.container .input-text textarea::-moz-placeholder {
+    color: #999999;
+    font-family: "Gotham Light", sans-serif;
+    font-size: 14px;
+}
+
+.container .input-text input:-moz-placeholder,
+.container .input-text textarea:-moz-placeholder {
+    color: #999999;
+    font-family: "Gotham Light", sans-serif;
+    font-size: 14px;
+}
+
+.container .input-text input:-ms-input-placeholder,
+.container .input-text textarea:-ms-input-placeholder {
+    color: #999999;
+    font-family: "Gotham Light", sans-serif;
+    font-size: 14px;
+}
+
+
+/***** Booking form *****/
+
+.booking {
+    width: 50%;
+    height: 90%;
+}
+
+.is-sent {
+    animation: launch 1s ease-in-out forwards
+}
+
+@keyframes launch {
+    0% {
+        transform: translateY(0);
+    }
+    10%,
+    15% {
+        transform: translateY(20px);
+    }
+    100% {
+        transform: translateY(-700px);
+    }
+}
+
+.booking .header {
+    width: 100%;
+    height: 185px;
+    background-image: url(../Imagenes/data.jpg);
+    background-size: cover;
+    position: static;
+    color: #fff;
+}
+
+.booking .header div {
+    position: absolute;
+    left: 22px;
+    top: 117px;
+}
+
+.booking .header h2 {
+    font-size: 25px;
+}
+
+.booking .header p {
+    font-family: "Gotham Light", sans-serif;
+    margin: 4px 0 0 21px;
+}
+
+.booking .header .icon {
+    background-position: 0 -60px;
+    position: absolute;
+    left: 4px;
+    top: 33px;
+}
+
+
+/*inputs*/
+
+#descripcion,
+#distancia,
+#tiempo,
+#media,
+#maxima,
+#desnivel,
+#calorias,
+#fecha {
+    width: 95%;
+    margin: 15px 2% 0 2%;
+}
+
+#izq,
+#dcha {
+    width: 50%;
+}
+
+.booking .dates,
+.booking .persons {
+    width: 90%;
+    margin: 5px 4% 0 4%;
+}
+
+.booking .dates .input-text {
+    margin-top: 5px;
+}
+
+.booking .dates .input-text:nth-child(2) {
+    margin-bottom: 15px;
+}
+
+.booking .input-text .icon {
+    width: 36px;
+    height: 36px;
+    background-color: #404a58;
+    border-radius: 2px;
+    background-position: 10px -80px;
+    cursor: pointer;
+}
+
+#arrow {
+    color: red;
+    background-color: #404a58;
+    cursor: pointer;
+}
+
+#equipamiento {
+    cursor: pointer;
+}
+
+
+/*selects*/
+
+.booking .persons li {
+    display: inline-block;
+    font-size: 0;
+    width: 100%;
+    padding-left: 0;
+}
+
+.booking .persons label {
+    font-size: 14px;
+}
+
+.booking .persons .input-text {
+    width: 100%;
+    height: 45px;
+    padding: 0;
+    margin-top: 5px;
+}
+
+.booking .persons select {
+    font-size: 14px;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    font-size: 16px;
+    color: #404a58;
+    padding-left: 11px;
+    position: relative;
+    z-index: 1;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+}
+
+.booking .persons option {
+    background-color: #f4f4f4;
+}
+
+.booking .persons option:hover {
+    background-color: #f4f4f4;
+}
+
+.booking .persons .icon {
+    background-position: 15px -106px;
+    cursor: pointer;
+}
+
+
+/*button*/
+
+.booking .button-big {
+    position: relative;
+    padding-left: 20px;
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+
+.booking .button-big .icon {
+    background-position: 0 -150px;
+    position: absolute;
+    left: 59px;
+}
