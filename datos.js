@@ -533,7 +533,7 @@ router.post("/graficasAcumulado", function(req, res) {
 
             let entrenamiento = datos[0].entrenamiento
 
-            console.log(entrenamiento)
+
 
             for (let i = 0; i < entrenamiento.length; i++) {
                 if (entrenamiento[i].anyo == 2018) {

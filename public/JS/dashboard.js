@@ -19,6 +19,26 @@ function salir() {
     location.href = '../index.html';
 }
 
+comprobarSolicitud()
+
+function comprobarSolicitud() {
+    fetch("/solicitudes/", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ username: username }),
+        })
+        .then(function(res) {
+            return res.json();
+        })
+        .then(function(data) {
+
+
+        })
+
+}
+
 actualizarDatos()
 actualizarGraficas()
     /* addDatos() */
