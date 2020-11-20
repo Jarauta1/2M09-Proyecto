@@ -231,7 +231,7 @@ function actualizarGraficas() {
                     curve: 'smooth'
                 },
                 title: {
-                    text: actividad,
+
                     align: 'left'
                 },
                 grid: {
@@ -252,7 +252,7 @@ function actualizarGraficas() {
                 },
                 yaxis: {
                     title: {
-                        text: 'Km'
+
                     },
                     min: 0,
                     max: mayor
@@ -324,7 +324,7 @@ function actualizarGraficas() {
                 },
                 yaxis: {
                     title: {
-                        text: '$ (thousands)'
+
                     }
                 },
                 fill: {
@@ -391,7 +391,7 @@ function actualizarGraficas() {
                     curve: 'smooth'
                 },
                 title: {
-                    text: actividad2,
+
                     align: 'left'
                 },
                 grid: {
@@ -412,7 +412,7 @@ function actualizarGraficas() {
                 },
                 yaxis: {
                     title: {
-                        text: 'Km'
+
                     },
                     min: 0,
                     max: mayor2
@@ -522,7 +522,7 @@ function comprobarAmistad() {
                                         curve: 'smooth'
                                     },
                                     title: {
-                                        text: "Distancia",
+
                                         align: 'left'
                                     },
                                     grid: {
@@ -543,7 +543,7 @@ function comprobarAmistad() {
                                     },
                                     yaxis: {
                                         title: {
-                                            text: 'Km'
+
                                         },
                                         min: 0,
                                         max: alto

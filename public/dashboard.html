@@ -360,19 +360,20 @@
                 </div>
             </div>
             <div class="dashboard-card light">
-                <div class="dashboard-card__title"><img class="icon" src="./Imagenes/graficas.png" height="40" />Año
-                </div>
+                <div id="cabeceraGrafica">
+                    <div class="dashboard-card__title"><img class="icon" src="./Imagenes/graficas.png" height="40" />Año
+                    </div>
 
-
-                <div>
-                    <select onchange=actualizarGraficas() name="anyo" id="selectAnyo">
+                    <div id="inputGrafica">
+                        <div class="selectStyle">
+                            <select onchange=actualizarGraficas() class="styleInput" name="anyo" id="selectAnyo">
                         <option value="2020">2020</option>
                         <option value="2019">2019</option>
                         <option value="2018">2018</option>
                     </select>
-                </div>
-                <div>
-                    <select onchange=actualizarGraficas() name="actividad" id="selectActividad">
+                        </div>
+                        <div class="selectStyle">
+                            <select onchange=actualizarGraficas() class="styleInput" name="actividad" id="selectActividad">
                         <option value="distancia">Distancia</option>
                         <option value="calorias">Calorias</option>
                         <option value="elevacion">Desnivel</option>
@@ -380,17 +381,20 @@
                         <option value="velocidadMaxima">Vel. máxima</option>
                         <option value="tiempo">Tiempo</option>
                     </select>
+                        </div>
+                    </div>
                 </div>
                 <div id="chart"></div>
                 <div></div>
             </div>
 
             <div class="dashboard-card power">
-                <div class="dashboard-card__title"><img class="icon" src="./Imagenes/graficas.png" height="40" />MES
-                </div>
-
-                <div>
-                    <select onchange=actualizarGraficas() name="actividad" id="selectActividadBarras">
+                <div id="cabeceraGrafica">
+                    <div class="dashboard-card__title"><img class="icon" src="./Imagenes/graficas.png" height="40" />MES
+                    </div>
+                    <div id="inputGrafica">
+                        <div class="selectStyle">
+                            <select onchange=actualizarGraficas() class="styleInput" class="styleInput" name="actividad" id="selectActividadBarras">
                         <option value="distancia">Distancia</option>
                         <option value="calorias">Calorias</option>
                         <option value="elevacion">Desnivel</option>
@@ -398,6 +402,8 @@
                         <option value="velocidadMaxima">Vel. máxima</option>
                         <option value="tiempo">Tiempo</option>
                     </select>
+                        </div>
+                    </div>
                 </div>
 
                 <div id="chart2"></div>
@@ -406,16 +412,19 @@
 
             </div>
             <div class="dashboard-card acumulado">
-                <div class="dashboard-card__title"><img class="icon" src="./Imagenes/graficas.png" height="40" />EVOLUCION
-                </div>
-
-                <div>
-                    <select onchange=actualizarGraficas() name="actividad" id="selectActividadAcumulado">
+                <div id="cabeceraGrafica">
+                    <div class="dashboard-card__title"><img class="icon" src="./Imagenes/graficas.png" height="40" />EVOLUCION
+                    </div>
+                    <div id="inputGrafica">
+                        <div class="selectStyle">
+                            <select onchange=actualizarGraficas() class="styleInput" class="styleInput" name="actividad" id="selectActividadAcumulado">
                         <option value="distancia">Distancia</option>
                         <option value="calorias">Calorias</option>
                         <option value="elevacion">Desnivel</option>
                         <option value="tiempo">Tiempo</option>
                     </select>
+                        </div>
+                    </div>
                 </div>
 
                 <div id="chart3"></div>
@@ -424,21 +433,26 @@
 
             </div>
             <div class="dashboard-card amistad">
-                <div class="dashboard-card__title"><img class="icon" src="./Imagenes/graficas.png" height="40" />COMPARATIVA AMISTAD
-                </div>
-
-                <div>
-                    <select onchange=actualizarGraficas() name="actividad" id="selectActividadAmistad">
+                <div id="cabeceraGrafica">
+                    <div class="dashboard-card__title"><img class="icon" src="./Imagenes/graficas.png" height="40" />COMPARATIVA AMISTAD
+                    </div>
+                    <div id="inputGrafica">
+                        <div class="selectStyle">
+                            <select onchange=actualizarGraficas() class="styleInput" class="styleInput" name="actividad" id="selectActividadAmistad">
                         <option value="distancia">Distancia</option>
                         <option value="calorias">Calorias</option>
                         <option value="elevacion">Desnivel</option>
                         <option value="tiempo">Tiempo</option>
                     </select>
+                        </div>
+                    </div>
                 </div>
 
                 <div id="divAmistad"></div>
 
-                <div></div>
+                <div id="div10">
+
+                </div>
 
             </div>
         </div>
