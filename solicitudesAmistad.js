@@ -6,18 +6,17 @@ const bcrypt = require("bcrypt");
 router.post("/", function(req, res) {
     let db = req.app.locals.db
 
-    let username = req.body.username;
+    let username = req.body.usuario;
 
     let usuarioSolicita
 
-    db.collection("users").find({ username: username }).toArray(function(err, arrayUsuario) {
+
+    db.collection("users").find().toArray(function(err, arrayUsuario) {
         if (err !== null) {
             res.send({ mensaje: "Ha habido un error" });
         } else {
-            if (arrayUsuario[0].peticionAmistad == "si") {
-                usuarioSolicita = arrayUsuario[0].solicitud
-                res.send({ solicitud: "si", solicitante: usuarioSolicita })
-            }
+
+            res.send(arrayUsuario)
 
         }
     });

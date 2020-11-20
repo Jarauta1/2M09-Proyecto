@@ -8,7 +8,13 @@ function editar() {
 }
 
 function usuarios() {
-    location.href = '../listaUsuarios.html';
+    let comprobacion = localStorage.getItem("solicitud")
+
+    if (comprobacion == "si") {
+        location.href = '../listaSolicitud.html'
+    } else {
+        location.href = '../listaUsuarios.html';
+    }
 }
 
 function datos() {
@@ -33,6 +39,11 @@ function comprobarSolicitud() {
             return res.json();
         })
         .then(function(data) {
+            if (data.solicitud == "si" && username !== data.solicitante) {
+                localStorage.setItem("solicitud", "si")
+                localStorage.setItem("solicitante", data.solicitante)
+                window.alert(`Tienes una solicitud de amistad de ${data.solicitante}`)
+            }
 
 
         })
