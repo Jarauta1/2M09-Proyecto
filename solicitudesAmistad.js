@@ -84,8 +84,14 @@ router.put("/rechazar", function(req, res) {
             console.log(err)
             res.send({ mensaje: "Error:" + err })
         } else {
-            res.send({ mensaje: "Solicitud rechazada" })
-
+            db.collection("users").updateOne({ username: solicitado }, { $set: { solicitud: "no" } }, function(err, datos) {
+                if (err !== null) {
+                    console.log(err)
+                    res.send({ mensaje: "Error:" + err })
+                } else {
+                    res.send({ mensaje: "Solicitud rechazada" })
+                }
+            })
         }
     })
 
