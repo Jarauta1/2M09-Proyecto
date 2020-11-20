@@ -9,15 +9,21 @@ router.post("/usuario", function(req, res) {
 
     let username = req.body.username
 
+
     db.collection("users").find({ username: username }).toArray(function(err, datos) {
         if (err !== null) {
             console.log(err)
             res.send({ mensaje: "Error:" + err })
         } else {
+
             let amistad = datos[0].amistad
             let longitud = amistad.length
 
-            res.send({ longitud: longitud, amigo: amistad[0].username })
+            if (longitud < 0) {
+                res.send({ longitud: longitud, amigo: amistad[0].username })
+            } else if (longitud == 0) {
+                res.send({ mensaje: "No hay amigos" })
+            }
         }
 
     })
@@ -86,6 +92,7 @@ router.post("/login", function(req, res) {
         if (err !== null) {
             res.send({ mensaje: "Ha habido un error" });
         } else {
+
             if (arrayUsuario.length > 0) {
                 if (bcrypt.compareSync(password, arrayUsuario[0].password)) {
                     res.send({ entrar: "si", mensaje: "Logueado correctamente" });

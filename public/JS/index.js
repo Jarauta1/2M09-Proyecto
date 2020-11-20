@@ -81,6 +81,7 @@ function entrar() {
             document.getElementById("falloEntrar").innerHTML = `<span>${data.mensaje}</span>`
 
             if (data.entrar == "si") {
+                console.log(usuarioRegistrar)
                 localStorage.setItem("usuario", usuarioRegistrar)
                 location.href = '../dashboard.html';
             }

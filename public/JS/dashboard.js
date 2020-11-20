@@ -451,6 +451,7 @@ function comprobarAmistad() {
         .then(function(data) {
             let hayAmigo = data.longitud
             let amigo = data.amigo
+            console.log(hayAmigo, amigo)
 
             if (hayAmigo > 0) {
 
