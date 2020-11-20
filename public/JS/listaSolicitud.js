@@ -92,6 +92,7 @@ function aceptar(indice) {
             localStorage.setItem("solicitud", "no")
             localStorage.setItem("solicitante", "nadie")
             window.alert(data.mensaje)
+            location.href = '../dashboard.html';
         });
 }
 
@@ -116,5 +117,6 @@ function rechazar() {
             localStorage.setItem("solicitud", "no")
             localStorage.setItem("solicitante", "nadie")
             window.alert(data.mensaje)
+            location.href = '../dashboard.html';
         });
 }
