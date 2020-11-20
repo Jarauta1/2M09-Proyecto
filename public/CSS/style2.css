@@ -546,6 +546,11 @@ body {
     grid-column: 1/6;
 }
 
+.amistad {
+    grid-row: 8;
+    grid-column: 1/6;
+}
+
 @media (max-width: 992px) {
     .dashboard {
         grid-template-columns: repeat(2, 1fr);
@@ -584,6 +589,14 @@ body {
     }
     .power {
         grid-row: 7;
+        grid-column: 1/3;
+    }
+    .acumulado {
+        grid-row: 8;
+        grid-column: 1/3;
+    }
+    .amistad {
+        grid-row: 9;
         grid-column: 1/3;
     }
     .light-switches:last-child {
@@ -630,6 +643,14 @@ body {
     }
     .power {
         grid-row: 8;
+        grid-column: 1;
+    }
+    .acumulado {
+        grid-row: 9;
+        grid-column: 1;
+    }
+    .amistad {
+        grid-row: 10;
         grid-column: 1;
     }
     .power .dashboard-card__card-piece {

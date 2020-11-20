@@ -369,7 +369,7 @@
                         <option value="2020">2020</option>
                         <option value="2019">2019</option>
                         <option value="2018">2018</option>
-                                            </select>
+                    </select>
                 </div>
                 <div>
                     <select onchange=actualizarGraficas() name="actividad" id="selectActividad">
@@ -419,6 +419,24 @@
                 </div>
 
                 <div id="chart3"></div>
+
+                <div></div>
+
+            </div>
+            <div class="dashboard-card amistad">
+                <div class="dashboard-card__title"><img class="icon" src="./Imagenes/graficas.png" height="40" />COMPARATIVA AMISTAD
+                </div>
+
+                <div>
+                    <select onchange=actualizarGraficas() name="actividad" id="selectActividadAmistad">
+                        <option value="distancia">Distancia</option>
+                        <option value="calorias">Calorias</option>
+                        <option value="elevacion">Desnivel</option>
+                        <option value="tiempo">Tiempo</option>
+                    </select>
+                </div>
+
+                <div id="divAmistad"></div>
 
                 <div></div>
 

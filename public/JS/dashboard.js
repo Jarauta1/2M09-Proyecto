@@ -434,3 +434,143 @@ function actualizarGraficas() {
 
         })
 }
+
+comprobarAmistad()
+
+function comprobarAmistad() {
+    fetch("/usuarios/usuario", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ username: username }),
+        })
+        .then(function(res) {
+            return res.json();
+        })
+        .then(function(data) {
+            let hayAmigo = data.longitud
+            let amigo = data.amigo
+
+            if (hayAmigo > 0) {
+
+                fetch("/datos/graficasAcumulado", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({ username: username, actividad: "distancia" }),
+                    })
+                    .then(function(res) {
+                        return res.json();
+                    })
+                    .then(function(data) {
+                        let usu1ene = data.ene20
+                        let usu1feb = data.feb20
+                        let usu1mar = data.mar20
+                        let usu1abr = data.abr20
+                        let usu1may = data.may20
+                        let usu1jun = data.jun20
+                        let usu1jul = data.jul20
+                        let usu1ago = data.ago20
+                        let usu1sep = data.sep20
+                        let usu1oct = data.oct20
+                        let usu1nov = data.nov20
+                        let usu1dic = data.dic20
+
+                        fetch("/datos/graficasAcumulado", {
+                                method: "POST",
+                                headers: {
+                                    "Content-Type": "application/json",
+                                },
+                                body: JSON.stringify({ username: amigo, actividad: "distancia" }),
+                            })
+                            .then(function(res) {
+                                return res.json();
+                            })
+                            .then(function(data) {
+
+                                var alto = Math.max(usu1ene, usu1feb, usu1mar, usu1abr, usu1may, usu1jun, usu1jul, usu1ago, usu1sep, usu1oct, usu1nov, usu1dic, data.ene20, data.feb20, data.mar20, data.abr20, data.may20, data.jun20, data.jul20, data.ago20, data.sep20, data.oct20, data.nov20, data.dic20);
+                                var options = {
+                                    series: [{
+                                        name: username,
+                                        data: [usu1ene, usu1feb, usu1mar, usu1abr, usu1may, usu1jun, usu1jul, usu1ago, usu1sep, usu1oct, usu1nov, usu1dic]
+                                    }, {
+                                        name: amigo,
+                                        data: [data.ene20, data.feb20, data.mar20, data.abr20, data.may20, data.jun20, data.jul20, data.ago20, data.sep20, data.oct20, data.nov20, data.dic20]
+                                    }],
+                                    chart: {
+                                        height: 300,
+                                        type: 'line',
+                                        dropShadow: {
+                                            enabled: true,
+                                            color: '#000',
+                                            top: 18,
+                                            left: 7,
+                                            blur: 10,
+                                            opacity: 0.2
+                                        },
+                                        toolbar: {
+                                            show: false
+                                        }
+                                    },
+                                    colors: ['#77B6EA', '#545454'],
+                                    dataLabels: {
+                                        enabled: true,
+                                    },
+                                    stroke: {
+                                        curve: 'smooth'
+                                    },
+                                    title: {
+                                        text: "Distancia",
+                                        align: 'left'
+                                    },
+                                    grid: {
+                                        borderColor: '#e7e7e7',
+                                        row: {
+                                            colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+                                            opacity: 0.5
+                                        },
+                                    },
+                                    markers: {
+                                        size: 1
+                                    },
+                                    xaxis: {
+                                        categories: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', "Ago", "Sep", "Oct", "Nov", "Dic"],
+                                        title: {
+                                            text: 'Mes'
+                                        }
+                                    },
+                                    yaxis: {
+                                        title: {
+                                            text: 'Km'
+                                        },
+                                        min: 0,
+                                        max: alto
+                                    },
+                                    legend: {
+                                        position: "top",
+                                        horizontalAlign: 'right',
+                                        floating: true,
+                                        offsetY: -25,
+                                        offsetX: -5
+                                    }
+                                };
+
+                                var chart = new ApexCharts(document.querySelector("#divAmistad"), options);
+                                chart.render();
+
+
+
+                            })
+
+
+
+                    })
+
+
+
+            }
+
+        })
+}

@@ -4,6 +4,27 @@ const cifrarContrasenia = require("./cifrarContrasenia")
 const bcrypt = require("bcrypt");
 /* const array = require("./array") */
 
+router.post("/usuario", function(req, res) {
+    let db = req.app.locals.db
+
+    let username = req.body.username
+
+    db.collection("users").find({ username: username }).toArray(function(err, datos) {
+        if (err !== null) {
+            console.log(err)
+            res.send({ mensaje: "Error:" + err })
+        } else {
+            let amistad = datos[0].amistad
+            let longitud = amistad.length
+
+            res.send({ longitud: longitud, amigo: amistad[0].username })
+        }
+
+    })
+
+})
+
+
 router.post("/registro", cifrarContrasenia, function(req, res) {
     let db = req.app.locals.db
 
